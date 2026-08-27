@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 126" width="108" height="126">
+  <defs>
+    <linearGradient id="goldGradV" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2B889"/>
+      <stop offset="50%" stop-color="#C4956A"/>
+      <stop offset="100%" stop-color="#9E6F45"/>
+    </linearGradient>
+    <linearGradient id="whiteGradV" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#E0E0E0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hexagonal / Diamond Architectural Crest -->
+  <g transform="translate(4, 4)">
+    <path d="M 50 2 L 96 28 L 96 78 L 50 104 L 4 78 L 4 28 Z" fill="none" stroke="url(#goldGradV)" stroke-width="3" stroke-linejoin="round"/>
+    
+    <!-- Blueprint architectural grid lines -->
+    <path d="M 50 2 L 50 104" stroke="url(#goldGradV)" stroke-width="1.5" stroke-opacity="0.3"/>
+    <path d="M 4 28 L 96 78" stroke="url(#goldGradV)" stroke-width="1.5" stroke-opacity="0.3"/>
+    <path d="M 4 78 L 96 28" stroke="url(#goldGradV)" stroke-width="1.5" stroke-opacity="0.3"/>
+    
+    <!-- Monogram SDB -->
+    <text x="50" y="62" font-family="'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="900" font-size="32" fill="url(#whiteGradV)" text-anchor="middle" letter-spacing="3">SDB</text>
+  </g>
+
+  <!-- Text Sinar Design & Build -->
+  <text x="54" y="122" font-family="'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif" font-weight="700" font-size="9" fill="url(#goldGradV)" text-anchor="middle" letter-spacing="3">SINAR</text>
+</svg>
+
