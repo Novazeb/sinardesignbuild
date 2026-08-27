@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/mockup.html",
+      "destination": "/mockup.html"
+    },
+    {
+      "source": "/((?!assets/|css/|fonts/|images/|js/|mockup.html|favicon.ico).*)$",
+      "destination": "/index.html"
+    }
+  ]
+}
