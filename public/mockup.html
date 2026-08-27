@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SINAR DESIGN & BUILD - Presentation Mockup Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <style>
+    :root {
+      --bg-dark: #121315;
+      --bg-card: #1a1c20;
+      --gold-primary: #C4956A;
+      --gold-light: #e5b98f;
+      --text-white: #ffffff;
+      --text-muted: #9da3af;
+      --border-dark: rgba(196, 149, 106, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #0d0e11;
+      color: var(--text-white);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 20px;
+      z-index: 999;
+      background: rgba(26, 28, 32, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border-dark);
+      border-radius: 50px;
+      padding: 10px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .toolbar h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--gold-primary);
+      letter-spacing: 1px;
+    }
+
+    .btn-export {
+      background: linear-gradient(135deg, #C4956A, #a67448);
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-export:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(196, 149, 106, 0.4);
+    }
+
+    /* 16:9 Presentation Canvas */
+    .slide-canvas {
+      width: 1200px;
+      height: 675px;
+      background: radial-gradient(circle at 80% 20%, #22262e 0%, #121316 60%, #0a0b0d 100%);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 50px;
+    }
+
+    /* Blueprint grid background */
+    .slide-canvas::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(196, 149, 106, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(196, 149, 106, 0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+
+    /* Ambient Glow */
+    .glow-orb {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(196, 149, 106, 0.15) 0%, rgba(196, 149, 106, 0) 70%);
+      top: -100px;
+      right: 15%;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .slide-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .slide-logo img {
+      height: 38px;
+    }
+
+    .slide-tag {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      background: rgba(196, 149, 106, 0.1);
+      border: 1px solid var(--border-dark);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* Main Content Layout */
+    .slide-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 2;
+      flex: 1;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .slide-info {
+      max-width: 440px;
+    }
+
+    .slide-badge {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .slide-badge::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--gold-primary);
+    }
+
+    .slide-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.15;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, #FFFFFF 40%, #A0A5B0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .slide-desc {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .stat-card {
+      background: rgba(26, 28, 32, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--gold-primary);
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .stat-label {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      margin-top: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    /* 3D Devices Showcase */
+    .mockup-showcase {
+      position: relative;
+      width: 600px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Laptop Frame */
+    .laptop-frame {
+      position: absolute;
+      width: 480px;
+      height: 290px;
+      background: #18191c;
+      border: 3px solid #2e3138;
+      border-radius: 12px 12px 0 0;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 40px rgba(196, 149, 106, 0.15);
+      top: 25px;
+      left: 20px;
+      overflow: hidden;
+      transform: perspective(1000px) rotateY(-8deg) rotateX(4deg);
+      transition: all 0.3s ease;
+    }
+
+    .laptop-screen {
+      width: 100%;
+      height: 100%;
+      background: url('/images/slide-1-1339x729.jpg') center/cover no-repeat;
+      position: relative;
+    }
+
+    .laptop-screen-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(90deg, rgba(18, 19, 21, 0.95) 0%, rgba(18, 19, 21, 0.85) 45%, rgba(18, 19, 21, 0.1) 100%);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .screen-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .screen-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: #fff;
+    }
+
+    .screen-logo span {
+      color: var(--gold-primary);
+    }
+
+    .screen-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .screen-sub {
+      font-size: 8px;
+      color: var(--gold-light);
+      margin-top: 4px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .screen-btn {
+      display: inline-block;
+      align-self: flex-start;
+      margin-top: 8px;
+      font-size: 8px;
+      font-weight: 700;
+      padding: 4px 10px;
+      background: transparent;
+      border: 1px solid var(--gold-primary);
+      color: #fff;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+
+    .laptop-base {
+      position: absolute;
+      width: 540px;
+      height: 14px;
+      background: linear-gradient(180deg, #32353d 0%, #1c1d21 100%);
+      border-radius: 0 0 10px 10px;
+      bottom: 50px;
+      left: -10px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.9);
+      transform: perspective(1000px) rotateY(-8deg) rotateX(4deg);
+    }
+
+    .laptop-base::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: #111;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 0 0 4px 4px;
+    }
+
+    /* Mobile Phone Frame */
+    .phone-frame {
+      position: absolute;
+      width: 140px;
+      height: 270px;
+      background: #0f1012;
+      border: 4px solid #3a3e47;
+      border-radius: 24px;
+      right: 25px;
+      bottom: 25px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(196, 149, 106, 0.2);
+      overflow: hidden;
+      z-index: 10;
+      transform: perspective(800px) rotateY(-12deg) rotateX(6deg);
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 45px;
+      height: 10px;
+      background: #000;
+      border-radius: 8px;
+      z-index: 15;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: #151619;
+      padding: 24px 10px 10px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .phone-img {
+      width: 100%;
+      height: 100px;
+      background: url('/images/project-1-775x524.jpg') center/cover no-repeat;
+      border-radius: 8px;
+    }
+
+    .phone-text {
+      font-size: 8px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .phone-badge {
+      font-size: 6px;
+      color: var(--gold-primary);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .phone-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 6px;
+      font-size: 7px;
+      color: var(--text-muted);
+    }
+
+    /* Footer / Credits */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      z-index: 2;
+    }
+
+    .slide-footer strong {
+      color: var(--gold-primary);
+    }
+
+    .contact-chips {
+      display: flex;
+      gap: 16px;
+    }
+
+    .chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: #e0e0e0;
+    }
+
+    .chip i {
+      color: var(--gold-primary);
+    }
+
+    /* Slide 2: Feature Matrix */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+    .feature-box {
+      background: rgba(26, 28, 32, 0.6);
+      border: 1px solid rgba(196, 149, 106, 0.2);
+      border-radius: 12px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--gold-primary), transparent);
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      color: var(--gold-primary);
+      margin-bottom: 14px;
+    }
+
+    .feature-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .feature-desc {
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Controls Toolbar -->
+  <div class="toolbar">
+    <h1>SINAR DESIGN & BUILD &bull; PRESENTATION DECK</h1>
+    <button class="btn-export" onclick="exportSlide('slide-1', 'SDB-Mockup-Hero.png')">
+      <i class="fa-solid fa-download"></i> Download Mockup Slide 1 (PNG)
+    </button>
+    <button class="btn-export" onclick="exportSlide('slide-2', 'SDB-Mockup-Features.png')">
+      <i class="fa-solid fa-download"></i> Download Mockup Slide 2 (PNG)
+    </button>
+  </div>
+
+  <!-- SLIDE 1: Hero Multi-Device Mockup -->
+  <div class="slide-canvas" id="slide-1">
+    <div class="glow-orb"></div>
+
+    <div class="slide-header">
+      <div class="slide-logo">
+        <img src="/images/logo-sdb.svg" alt="SINAR DESIGN & BUILD">
+      </div>
+      <div class="slide-tag">Arsitektur &bull; Konstruksi &bull; Interior</div>
+    </div>
+
+    <div class="slide-body">
+      <div class="slide-info">
+        <div class="slide-badge">Profil Perusahaan Resmi</div>
+        <h2 class="slide-title">Desain &amp;<br>Rancang Bangun</h2>
+        <p class="slide-desc">
+          Platform website modern untuk konsultan arsitektur dan kontraktor terpercaya di Jakarta. Menghadirkan solusi hunian mewah, efisien energi, dan bernilai investasi tinggi.
+        </p>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-number">7+ Thn</div>
+            <div class="stat-label">Pengalaman</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Proyek Selesai</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Dedikasi Mutu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mockup-showcase">
+        <!-- MacBook Pro Mockup -->
+        <div class="laptop-frame">
+          <div class="laptop-screen">
+            <div class="laptop-screen-overlay">
+              <div class="screen-header">
+                <div class="screen-logo">SDB <span>SINAR</span></div>
+                <div style="font-size: 8px; color: #fff; opacity: 0.8;">JAKARTA</div>
+              </div>
+              <div>
+                <div class="screen-headline">DESAIN &amp;<br>BANGUN</div>
+                <div class="screen-sub">Hunian Modern &amp; Efisien Energi</div>
+                <div class="screen-btn">Hubungi Kami</div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 7px; color: #aaa; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px;">
+                <span>50+ KARYA</span>
+                <span>JAKARTA SELATAN &bull; 200 m²</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base"></div>
+
+        <!-- iPhone 16 Pro Mockup -->
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="phone-badge">Portofolio Pilihan</div>
+            <div class="phone-img"></div>
+            <div class="phone-text">Hunian Tropis Modern</div>
+            <div class="phone-card">Pondok Indah, Jakarta Selatan &bull; 2 Lantai</div>
+            <div class="phone-card" style="margin-top: 4px; border-left: 2px solid var(--gold-primary);">
+              Konsultasi Langsung via WA &bull; +62 812-1893-9696
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>Lokasi: <strong>Jakarta, Indonesia</strong> &bull; Design by <strong>Nova</strong></div>
+      <div class="contact-chips">
+        <div class="chip"><i class="fa-brands fa-whatsapp"></i> +62 812-1893-9696</div>
+        <div class="chip"><i class="fa-brands fa-instagram"></i> @zebua_1011</div>
+        <div class="chip"><i class="fa-solid fa-envelope"></i> novaberkatsyukurzebua@gmail.com</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Features & Architecture Deck -->
+  <div class="slide-canvas" id="slide-2">
+    <div class="glow-orb" style="right: auto; left: 10%;"></div>
+
+    <div class="slide-header">
+      <div class="slide-logo">
+        <img src="/images/logo-sdb.svg" alt="SINAR DESIGN & BUILD">
+      </div>
+      <div class="slide-tag">Arsitektur &bull; Teknologi &bull; Standar Mutu</div>
+    </div>
+
+    <div style="margin-top: 10px; z-index: 2;">
+      <div class="slide-badge">Karakteristik &amp; Keunggulan Layanan</div>
+      <h2 style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 800; text-transform: uppercase;">
+        Solusi Rancang Bangun Terpadu di Jakarta
+      </h2>
+    </div>
+
+    <div class="features-grid" style="z-index: 2;">
+      <div class="feature-box">
+        <div class="feature-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+        <h3 class="feature-title">Desain Arsitektur &amp; 3D</h3>
+        <p class="feature-desc">Perencanaan denah presisi, gambar kerja DED lengkap, dan visualisasi 3D realistis berstandar tinggi untuk hunian tropis modern.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+        <h3 class="feature-title">Konstruksi &amp; Bangun Baru</h3>
+        <p class="feature-desc">Pelaksanaan fisik dengan manajemen material teruji, ketepatan waktu proyek, serta supervisi langsung oleh arsitek lapangan.</p>
+      </div>
+      <div class="feature-box">
+        <div class="feature-icon"><i class="fa-solid fa-couch"></i></div>
+        <h3 class="feature-title">Interior &amp; Tata Cahaya</h3>
+        <p class="feature-desc">Penataan ruang dalam yang harmonis, pencahayaan alami yang sejuk, serta furnitur kustom yang fungsional dan mewah.</p>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <div>Stack Teknologi: <strong>Vue 3 &bull; Vite &bull; Swiper &bull; Bootstrap Grid</strong></div>
+      <div>Designed &amp; Developed by <strong>Nova (SINAR DESIGN &amp; BUILD)</strong></div>
+    </div>
+  </div>
+
+  <script>
+    function exportSlide(elementId, filename) {
+      const slide = document.getElementById(elementId);
+      html2canvas(slide, {
+        scale: 2, // 2x for Ultra-HD Crisp 2400x1350 resolution
+        useCORS: true,
+        backgroundColor: '#0d0e11'
+      }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = filename;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+      });
+    }
+  </script>
+
+</body>
+</html>

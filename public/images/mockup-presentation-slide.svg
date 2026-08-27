@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background:#0D0E11; font-family:'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="goldLinear" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5B98F"/>
+      <stop offset="50%" stop-color="#C4956A"/>
+      <stop offset="100%" stop-color="#9E6F45"/>
+    </linearGradient>
+    <linearGradient id="darkCard" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E2026"/>
+      <stop offset="100%" stop-color="#141519"/>
+    </linearGradient>
+    <linearGradient id="screenOverlay" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#121316" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#121316" stop-opacity="0.80"/>
+      <stop offset="100%" stop-color="#121316" stop-opacity="0.20"/>
+    </linearGradient>
+    <filter id="dropShadow" x="-20%" y="-20%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="25" stdDeviation="30" flood-color="#000" flood-opacity="0.7"/>
+    </filter>
+    <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="60" result="blur"/>
+    </filter>
+  </defs>
+
+  <!-- Blueprint Background Grid Pattern -->
+  <g opacity="0.04" stroke="#C4956A" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40"/>
+    </pattern>
+    <rect width="1920" height="1080" fill="url(#grid)" />
+  </g>
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="1400" cy="300" r="350" fill="#C4956A" opacity="0.12" filter="url(#goldGlow)"/>
+  <circle cx="300" cy="800" r="250" fill="#C4956A" opacity="0.08" filter="url(#goldGlow)"/>
+
+  <!-- Top Navbar / Slide Header -->
+  <g transform="translate(100, 70)">
+    <!-- SDB Logo Vector -->
+    <g transform="translate(0, 0)">
+      <path d="M 25 2 L 48 15 L 48 40 L 25 53 L 2 40 L 2 15 Z" fill="none" stroke="url(#goldLinear)" stroke-width="2.5"/>
+      <text x="25" y="34" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">SDB</text>
+      <text x="65" y="32" font-size="22" font-weight="800" fill="#FFFFFF" letter-spacing="3">SINAR</text>
+      <text x="65" y="48" font-size="10" font-weight="600" fill="url(#goldLinear)" letter-spacing="4">DESIGN &amp; BUILD</text>
+    </g>
+
+    <!-- Category Pill -->
+    <g transform="translate(1450, 5)">
+      <rect x="0" y="0" width="270" height="40" rx="20" fill="rgba(196,149,106,0.12)" stroke="url(#goldLinear)" stroke-width="1"/>
+      <text x="135" y="25" font-size="12" font-weight="700" fill="#E5B98F" text-anchor="middle" letter-spacing="2">JAKARTA &bull; ARSITEKTUR &bull; 2026</text>
+    </g>
+  </g>
+
+  <!-- Left Content Column -->
+  <g transform="translate(100, 220)">
+    <!-- Badge -->
+    <g>
+      <rect x="0" y="0" width="30" height="3" fill="#C4956A"/>
+      <text x="45" y="6" font-size="14" font-weight="700" fill="#C4956A" letter-spacing="4">PROFIL PERUSAHAAN</text>
+    </g>
+
+    <!-- Main Headline -->
+    <text x="0" y="80" font-size="58" font-weight="900" fill="#FFFFFF" letter-spacing="1">DESAIN &amp;</text>
+    <text x="0" y="145" font-size="58" font-weight="900" fill="#FFFFFF" letter-spacing="1">RANCANG BANGUN</text>
+
+    <!-- Description -->
+    <text x="0" y="205" font-size="18" font-weight="400" fill="#A0A5B0" width="600">
+      <tspan x="0" dy="0">Konsultan arsitektur dan kontraktor terpercaya di Jakarta.</tspan>
+      <tspan x="0" dy="28">Menghadirkan solusi hunian modern, efisien energi, serta</tspan>
+      <tspan x="0" dy="28">rancangan interior mewah bernilai investasi tinggi.</tspan>
+    </text>
+
+    <!-- Metrics / Stats Cards -->
+    <g transform="translate(0, 320)">
+      <!-- Card 1 -->
+      <g transform="translate(0, 0)">
+        <rect width="180" height="100" rx="12" fill="url(#darkCard)" stroke="rgba(255,255,255,0.08)"/>
+        <rect width="4" height="100" rx="2" fill="#C4956A"/>
+        <text x="24" y="45" font-size="28" font-weight="800" fill="#FFFFFF">7+ Thn</text>
+        <text x="24" y="75" font-size="12" font-weight="600" fill="#A0A5B0" letter-spacing="1">PENGALAMAN</text>
+      </g>
+      <!-- Card 2 -->
+      <g transform="translate(205, 0)">
+        <rect width="180" height="100" rx="12" fill="url(#darkCard)" stroke="rgba(255,255,255,0.08)"/>
+        <rect width="4" height="100" rx="2" fill="#C4956A"/>
+        <text x="24" y="45" font-size="28" font-weight="800" fill="#FFFFFF">50+</text>
+        <text x="24" y="75" font-size="12" font-weight="600" fill="#A0A5B0" letter-spacing="1">PROYEK SELESAI</text>
+      </g>
+      <!-- Card 3 -->
+      <g transform="translate(410, 0)">
+        <rect width="180" height="100" rx="12" fill="url(#darkCard)" stroke="rgba(255,255,255,0.08)"/>
+        <rect width="4" height="100" rx="2" fill="#C4956A"/>
+        <text x="24" y="45" font-size="28" font-weight="800" fill="#FFFFFF">100%</text>
+        <text x="24" y="75" font-size="12" font-weight="600" fill="#A0A5B0" letter-spacing="1">KEPUASAN KLIEN</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Right Column: 3D Laptop & Mobile Presentation Mockup -->
+  <g transform="translate(920, 220)" filter="url(#dropShadow)">
+    <!-- Laptop Chassis -->
+    <g transform="translate(30, 20)">
+      <!-- Outer Bezel -->
+      <rect x="0" y="0" width="760" height="480" rx="20" fill="#1E2128" stroke="#373B47" stroke-width="3"/>
+      <!-- Screen Glass -->
+      <rect x="18" y="18" width="724" height="444" rx="6" fill="#141518"/>
+      
+      <!-- Screen Content Representation -->
+      <rect x="18" y="18" width="724" height="444" fill="#181A20"/>
+      <!-- Background Villa Visual -->
+      <path d="M 300 18 L 742 18 L 742 462 L 240 462 Z" fill="#282D37" opacity="0.6"/>
+      <!-- Night Sky / Architectural Structure Silhouette -->
+      <polygon points="380,80 742,40 742,462 310,462" fill="#1A1C23"/>
+      <polygon points="450,110 700,80 720,240 430,220" fill="#C4956A" opacity="0.25"/>
+      <polygon points="460,260 740,240 742,420 440,430" fill="#E5B98F" opacity="0.2"/>
+
+      <!-- Screen Left UI Overlay -->
+      <rect x="18" y="18" width="340" height="444" fill="url(#screenOverlay)"/>
+      <g transform="translate(45, 55)">
+        <text x="0" y="20" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="1">SDB <tspan fill="#C4956A">SINAR</tspan></text>
+        <text x="0" y="90" font-size="30" font-weight="900" fill="#FFFFFF" letter-spacing="1">DESAIN &amp;</text>
+        <text x="0" y="125" font-size="30" font-weight="900" fill="#FFFFFF" letter-spacing="1">BANGUN</text>
+        <text x="0" y="160" font-size="11" font-weight="700" fill="#C4956A" letter-spacing="2">HUNIAN MODERN &amp; EFISIEN</text>
+        
+        <!-- Button Mock -->
+        <rect x="0" y="190" width="130" height="34" rx="4" fill="none" stroke="#C4956A" stroke-width="1.5"/>
+        <text x="65" y="212" font-size="10" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">HUBUNGI KAMI</text>
+
+        <!-- Slider Info Bar -->
+        <rect x="0" y="340" width="280" height="1" fill="rgba(255,255,255,0.15)"/>
+        <text x="0" y="365" font-size="11" font-weight="800" fill="#FFFFFF">50+ KARYA</text>
+        <text x="130" y="365" font-size="10" font-weight="600" fill="#C4956A">JAKARTA SELATAN &bull; 200 m²</text>
+      </g>
+
+      <!-- Laptop Base / Lip -->
+      <path d="M -50 480 L 810 480 L 780 502 L -20 502 Z" fill="#2A2D36" stroke="#3A3E4A" stroke-width="2"/>
+      <rect x="330" y="480" width="100" height="6" rx="3" fill="#15161A"/>
+    </g>
+
+    <!-- Floating iPhone 16 Pro Mockup -->
+    <g transform="translate(620, 200)" filter="url(#dropShadow)">
+      <!-- Frame -->
+      <rect x="0" y="0" width="200" height="400" rx="36" fill="#121316" stroke="#4A4E5A" stroke-width="4"/>
+      <!-- Dynamic Island -->
+      <rect x="65" y="12" width="70" height="16" rx="8" fill="#000000"/>
+      <!-- Screen Content -->
+      <g transform="translate(15, 45)">
+        <rect width="170" height="120" rx="12" fill="#232730"/>
+        <polygon points="20,100 80,40 140,80 160,50 170,100" fill="#C4956A" opacity="0.4"/>
+        <text x="0" y="150" font-size="12" font-weight="800" fill="#FFFFFF">Hunian Tropis Modern</text>
+        <text x="0" y="168" font-size="9" font-weight="600" fill="#C4956A">Pondok Indah, Jaksel</text>
+        
+        <!-- Info Card -->
+        <rect x="0" y="185" width="170" height="65" rx="8" fill="rgba(255,255,255,0.06)"/>
+        <text x="10" y="208" font-size="9" font-weight="700" fill="#FFFFFF">Konsultasi Desain &amp; RAB</text>
+        <text x="10" y="226" font-size="8" font-weight="500" fill="#A0A5B0">+62 812-1893-9696</text>
+        <text x="10" y="240" font-size="8" font-weight="500" fill="#C4956A">@zebua_1011</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Footer Info Bar -->
+  <g transform="translate(100, 960)">
+    <line x1="0" y1="0" x2="1720" y2="0" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    <text x="0" y="45" font-size="15" font-weight="500" fill="#8E93A0">
+      Lokasi: <tspan font-weight="700" fill="#FFFFFF">Jakarta, Indonesia</tspan> &bull; Designed &amp; Developed by <tspan font-weight="700" fill="#C4956A">Nova</tspan>
+    </text>
+    
+    <g transform="translate(1100, 45)">
+      <text x="0" y="0" font-size="14" font-weight="600" fill="#E5B98F">
+        WA: +62 812-1893-9696 &bull; IG: @zebua_1011 &bull; novaberkatsyukurzebua@gmail.com
+      </text>
+    </g>
+  </g>
+</svg>
