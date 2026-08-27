@@ -98,14 +98,4 @@ npm run preview
 
 ---
 
-## 📞 Kontak & Informasi
-
-- **Perusahaan**: SINAR DESIGN & BUILD
-- **Lokasi**: Jakarta, Indonesia
-- **WhatsApp / Telepon**: [+62 812-1893-9696](https://wa.me/6281218939696)
-- **Instagram**: [@zebua_1011](https://instagram.com/zebua_1011)
-- **Email**: [novaberkatsyukurzebua@gmail.com](mailto:novaberkatsyukurzebua@gmail.com)
-
----
-
 **Designed & Developed by Nova**
